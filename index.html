@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hemangi Patil | Portfolio</title>
-  <meta name="description" content="Portfolio of Hemangi Patil, an infrastructure engineer focused on cloud systems, AI infrastructure, HPC, and performance engineering.">
+  <title>Hemangi Patil | Systems Portfolio</title>
+  <meta name="description" content="Hemangi Patil portfolio featuring cloud infrastructure, AI platforms, HPC systems, and performance engineering work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-noise"></div>
+  <div class="background-orb orb-a"></div>
+  <div class="background-orb orb-b"></div>
 
   <header class="site-header">
-    <div class="container topbar">
-      <a class="brand" href="#home">Hemangi Patil</a>
+    <div class="shell topbar">
+      <a class="brand" href="#top">Hemangi Patil</a>
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -25,186 +26,175 @@
     </div>
   </header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <p class="kicker">Cloud Infrastructure + AI Platforms + Systems Research</p>
-          <h1>Engineering the systems that make modern intelligence usable.</h1>
-          <p class="hero-text">
-            I am Hemangi Patil, an infrastructure engineer and M.S. Computer Science student at the University of South Florida.
-            My work spans private cloud architecture, GPU-backed environments, multi-agent AI systems, and performance-focused research.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">Explore projects</a>
-            <a class="button button-secondary" href="mailto:hemangirp15@gmail.com">Contact me</a>
-          </div>
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-intro">
+        <p class="eyebrow">Cloud Infrastructure • AI Platforms • HPC Systems</p>
+        <h1>Infrastructure engineer building serious systems for intelligent workloads.</h1>
+        <p class="hero-copy">
+          I design and analyze platforms where cloud architecture, GPU-backed AI systems,
+          distributed workflows, and low-level performance all matter at the same time.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View selected work</a>
+          <a class="button secondary" href="mailto:hemangirp15@gmail.com">Email me</a>
         </div>
-
-        <aside class="hero-aside">
-          <div class="mini-card">
-            <p class="mini-label">Current focus</p>
-            <ul>
-              <li>AI infrastructure and RAG pipelines</li>
-              <li>Cloud and HPC platform design</li>
-              <li>Microarchitectural analysis with gem5</li>
-              <li>Research-driven systems engineering</li>
-            </ul>
-          </div>
-
-          <div class="stats-grid">
-            <div class="stat-card">
-              <span class="stat-number">3+</span>
-              <span class="stat-label">Years in production infrastructure</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number">4500</span>
-              <span class="stat-label">VM scale supported in private cloud design</span>
-            </div>
-          </div>
-        </aside>
       </div>
+
+      <aside class="hero-profile">
+        <div class="profile-block">
+          <p class="profile-label">Based in</p>
+          <p class="profile-value">Tampa, Florida</p>
+        </div>
+        <div class="profile-block">
+          <p class="profile-label">Currently</p>
+          <p class="profile-value">M.S. Computer Science at USF</p>
+        </div>
+        <div class="profile-block">
+          <p class="profile-label">Focus</p>
+          <p class="profile-value">Cloud architecture, AI infrastructure, HPC, performance engineering</p>
+        </div>
+      </aside>
     </section>
 
-    <section class="section about-section" id="about">
-      <div class="container split">
-        <div class="section-heading">
-          <p class="kicker">About</p>
-          <h2>Built on systems thinking.</h2>
-        </div>
-        <div class="copy-panel">
+    <section class="section shell" id="about">
+      <div class="section-header">
+        <p class="eyebrow">About</p>
+        <h2>Technical depth with product awareness.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="statement-card">
           <p>
-            My background includes private cloud infrastructure, backend optimization, GPU-enabled academic environments,
-            and AI-adjacent platform work. I like building systems that are reliable under pressure and clear in their design choices.
+            I have 3+ years of production experience across private cloud platforms, backend optimization,
+            GPU-enabled academic environments, and infrastructure decisions that need to hold up under real use.
           </p>
+        </div>
+        <div class="statement-card">
           <p>
-            I am especially interested in the space where cloud architecture, distributed systems, AI applications,
-            and low-level performance engineering come together.
+            My best work happens where systems thinking matters most: making architecture scalable,
+            keeping platforms reliable, and understanding the performance tradeoffs behind the software.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-heading stacked">
-          <p class="kicker">Projects</p>
-          <h2>Selected work</h2>
-        </div>
+    <section class="section shell" id="projects">
+      <div class="section-header">
+        <p class="eyebrow">Selected Work</p>
+        <h2>Projects that show how I think.</h2>
+      </div>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <p class="project-kind">Systems Research</p>
-            <h3>Computer Architecture Project</h3>
-            <p>
-              A gem5-based analysis of HNSW vector search focused on memory bottlenecks,
-              architectural tradeoffs, and performance diagnosis.
-            </p>
-            <a href="https://github.com/Patil-Hemangi/Computer-Architecture-Project_Gem5" target="_blank" rel="noreferrer">View repository</a>
-          </article>
+      <div class="project-stack">
+        <article class="project-feature">
+          <div class="project-meta">
+            <span>Systems Research</span>
+            <span>gem5</span>
+          </div>
+          <h3>Computer Architecture Project</h3>
+          <p>
+            A gem5-based microarchitectural study of HNSW vector search, centered on memory bottlenecks,
+            workload behavior, and architecture-level performance tradeoffs.
+          </p>
+          <a href="https://github.com/Patil-Hemangi/Computer-Architecture-Project_Gem5" target="_blank" rel="noreferrer">Open repository</a>
+        </article>
 
-          <article class="project-card">
-            <p class="project-kind">Multi-Agent AI</p>
+        <div class="project-row">
+          <article class="project-tile">
+            <div class="project-meta">
+              <span>Multi-Agent AI</span>
+              <span>Hackathon</span>
+            </div>
             <h3>BayShield</h3>
             <p>
-              Disaster-response platform using coordinated AI agents, retrieval workflows,
-              risk mapping, and adaptive decision support.
+              Disaster-response platform with coordinated AI agents, risk mapping,
+              retrieval workflows, and adaptive operational planning.
             </p>
-            <span class="project-note">Award-winning hackathon project</span>
           </article>
 
-          <article class="project-card">
-            <p class="project-kind">Health Tech</p>
+          <article class="project-tile">
+            <div class="project-meta">
+              <span>Mobile Health</span>
+              <span>Flutter</span>
+            </div>
             <h3>NeuroTask</h3>
             <p>
-              Mobile system for neurological assessments with precise timestamping,
-              structured logging, and exportable session data.
+              Mobile system for neurological assessments with precise event timing,
+              structured logging, and exportable clinician-ready session data.
             </p>
-            <span class="project-note">Built with Flutter and Firebase</span>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="experience">
-      <div class="container split">
-        <div class="section-heading">
-          <p class="kicker">Experience</p>
-          <h2>Career highlights</h2>
-        </div>
-        <div class="timeline">
-          <article class="timeline-card">
-            <div class="timeline-year">2026 - Present</div>
-            <div>
-              <h3>Graduate Research Assistant</h3>
-              <p class="timeline-org">MAX Systems Lab, University of South Florida</p>
-              <p>Investigating large-scale data retrieval, workload behavior, indexing strategies, and performance bottlenecks.</p>
-            </div>
-          </article>
-
-          <article class="timeline-card">
-            <div class="timeline-year">2023 - 2025</div>
-            <div>
-              <h3>Solution Architect</h3>
-              <p class="timeline-org">Larsen & Toubro</p>
-              <p>Co-architected private cloud platforms, capacity plans, and GPU-backed environments for AI and compute-heavy workloads.</p>
-            </div>
-          </article>
-
-          <article class="timeline-card">
-            <div class="timeline-year">2022 - 2023</div>
-            <div>
-              <h3>Graduate Engineer Trainee</h3>
-              <p class="timeline-org">Larsen & Toubro</p>
-              <p>Improved backend responsiveness for a real-time financial platform through caching and query optimization.</p>
-            </div>
-          </article>
-        </div>
+    <section class="section shell" id="experience">
+      <div class="section-header">
+        <p class="eyebrow">Experience</p>
+        <h2>Where I’ve applied that skill set.</h2>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="container split">
-        <div class="section-heading">
-          <p class="kicker">Skills</p>
-          <h2>Core stack</h2>
-        </div>
-        <div class="skill-cloud">
-          <span>Python</span>
-          <span>Java</span>
-          <span>SQL</span>
-          <span>Dart</span>
-          <span>Linux</span>
-          <span>Docker</span>
-          <span>Kubernetes</span>
-          <span>AWS</span>
-          <span>Azure</span>
-          <span>OpenShift</span>
-          <span>TensorFlow</span>
-          <span>scikit-learn</span>
-          <span>RAG Pipelines</span>
-          <span>GPU Infrastructure</span>
-          <span>gem5</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="container">
-        <div class="contact-panel">
-          <div>
-            <p class="kicker">Contact</p>
-            <h2>Open to meaningful systems work.</h2>
-            <p>
-              I am interested in cloud architecture, AI infrastructure, systems engineering,
-              and research-driven software opportunities.
-            </p>
+      <div class="experience-list">
+        <article class="experience-card">
+          <div class="experience-time">2026 - Present</div>
+          <div class="experience-body">
+            <h3>Graduate Research Assistant</h3>
+            <p class="experience-org">MAX Systems Lab, University of South Florida</p>
+            <p>Working on large-scale data retrieval, indexing strategies, workload behavior, and systems performance bottlenecks.</p>
           </div>
-          <div class="contact-links">
-            <a href="mailto:hemangirp15@gmail.com">hemangirp15@gmail.com</a>
-            <a href="https://github.com/Patil-Hemangi" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/patilhemangi" target="_blank" rel="noreferrer">LinkedIn</a>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-time">2023 - 2025</div>
+          <div class="experience-body">
+            <h3>Solution Architect</h3>
+            <p class="experience-org">Larsen &amp; Toubro</p>
+            <p>Co-architected private cloud environments, capacity planning, and GPU-enabled platforms for AI and compute-intensive use cases.</p>
           </div>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-time">2022 - 2023</div>
+          <div class="experience-body">
+            <h3>Graduate Engineer Trainee</h3>
+            <p class="experience-org">Larsen &amp; Toubro</p>
+            <p>Improved backend responsiveness for a real-time financial platform through caching and query optimization.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-header">
+        <p class="eyebrow">Capabilities</p>
+        <h2>Tools I actually work with.</h2>
+      </div>
+
+      <div class="capability-grid">
+        <div class="capability-card">
+          <h3>Infrastructure</h3>
+          <p>Linux, Docker, Kubernetes, AWS, Azure, OpenShift, private cloud design, HPC environments</p>
+        </div>
+        <div class="capability-card">
+          <h3>AI and Data</h3>
+          <p>RAG pipelines, multi-agent systems, TensorFlow, scikit-learn, GPU-backed workflows</p>
+        </div>
+        <div class="capability-card">
+          <h3>Programming</h3>
+          <p>Python, Java, SQL, Dart, backend optimization, simulation and analysis tooling</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="contact">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Interested in cloud, AI infrastructure, and systems engineering roles.</h2>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:hemangirp15@gmail.com">hemangirp15@gmail.com</a>
+          <a href="https://github.com/Patil-Hemangi" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/patilhemangi" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
     </section>
