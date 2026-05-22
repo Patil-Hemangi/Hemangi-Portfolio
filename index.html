@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemangi Patil</title>
+  <meta name="description" content="Hemangi Patil — Cloud & AI Infrastructure Engineer, M.S. CS at USF." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Tokens ────────────────────────────────────────────── */
+    :root {
+      --bg:        #0d0d0d;
+      --bg2:       #121212;
+      --bg3:       #1a1a1a;
+      --line:      #222;
+      --line2:     #2e2e2e;
+      --accent:    #6366f1;
+      --accent-lt: rgba(99,102,241,.1);
+      --accent-bd: rgba(99,102,241,.25);
+      --teal:      #2dd4bf;
+      --text:      #efefef;
+      --text2:     #999;
+      --text3:     #555;
+      --r:         10px;
+      --w:         900px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; transition: color .15s; }
+    a:hover { color: var(--accent); }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 99px; }
+
+    /* ── Layout ────────────────────────────────────────────── */
+    .w { max-width: var(--w); margin: 0 auto; padding: 0 28px; }
+    section { padding: 88px 0; }
+    section + section { border-top: 1px solid var(--line); }
+
+    /* ── Nav ───────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,13,13,.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: var(--w); margin: 0 auto; padding: 0 28px;
+      height: 54px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-weight: 700; font-size: 1rem; letter-spacing: -.3px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { font-size: .88rem; font-weight: 500; color: var(--text2); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: .78rem; font-weight: 600; padding: 7px 16px;
+      background: var(--accent-lt); border: 1px solid var(--accent-bd);
+      border-radius: 6px; color: var(--accent) !important;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: rgba(99,102,241,.18) !important; color: var(--accent) !important; }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      padding: 4px; flex-direction: column; gap: 5px;
+    }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--text2); border-radius: 2px; }
+    .mob-menu {
+      display: none; position: fixed; top: 54px; left: 0; right: 0; z-index: 99;
+      background: rgba(13,13,13,.98); border-bottom: 1px solid var(--line);
+      padding: 16px 28px; flex-direction: column; gap: 2px;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { color: var(--text2); font-size: .95rem; font-weight: 500; padding: 11px 0; border-bottom: 1px solid var(--line); }
+    .mob-menu a:last-child { border-bottom: none; }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh; padding-top: 54px;
+      display: flex; align-items: center;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 340px;
+      gap: 60px; align-items: center; padding: 60px 0 40px;
+    }
+    /* Left */
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .72rem; font-weight: 600; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 22px;
+    }
+    .hero-tag::before {
+      content: ''; width: 18px; height: 1.5px; background: var(--accent);
+    }
+    h1.hero-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700; letter-spacing: -.5px; line-height: 1.15;
+      color: var(--text); margin-bottom: 14px;
+    }
+    .hero-role {
+      font-size: 1.1rem; color: var(--text2); margin-bottom: 20px;
+      font-weight: 400; letter-spacing: .1px;
+    }
+    .hero-role strong { color: var(--teal); font-weight: 600; }
+    .hero-bio {
+      font-size: 1.05rem; color: var(--text2); line-height: 1.8;
+      max-width: 500px; margin-bottom: 32px;
+    }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 44px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 20px; border-radius: 7px;
+      font-size: .83rem; font-weight: 600; transition: all .2s; cursor: pointer; border: none;
+    }
+    .btn-fill { background: var(--accent); color: #fff; }
+    .btn-fill:hover { background: #5558e8; color: #fff; transform: translateY(-1px); }
+    .btn-line { background: transparent; color: var(--text2); border: 1px solid var(--line2); }
+    .btn-line:hover { border-color: var(--line2); color: var(--text); transform: translateY(-1px); }
+
+    /* Stats strip */
+    .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+    .hstat { display: flex; flex-direction: column; }
+    .hstat-n {
+      font-size: 1.5rem; font-weight: 700; color: var(--text);
+      letter-spacing: -.5px; line-height: 1;
+    }
+    .hstat-l { font-size: .68rem; color: var(--text3); text-transform: uppercase; letter-spacing: .8px; margin-top: 4px; }
+
+    /* Right — photo */
+    .hero-photo-wrap { display: flex; justify-content: center; }
+    .hero-photo-frame {
+      position: relative; width: 280px; height: 280px;
+    }
+    .hero-photo-frame img,
+    .hero-photo-placeholder {
+      width: 100%; height: 100%;
+      border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--line2);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--accent);
+      display: block;
+    }
+    .hero-photo-placeholder {
+      background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; font-weight: 700; color: var(--text3);
+      letter-spacing: -2px; font-family: 'Playfair Display', serif;
+    }
+
+    /* ── Section label ─────────────────────────────────────── */
+    .s-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: 1.8px;
+      text-transform: uppercase; color: var(--text3); margin-bottom: 8px;
+    }
+    .s-title {
+      font-size: 1.55rem; font-weight: 700; letter-spacing: -.3px;
+      color: var(--text); margin-bottom: 28px; line-height: 1.3;
+    }
+
+    /* ── About ─────────────────────────────────────────────── */
+    .about-body { color: var(--text2); line-height: 1.85; margin-bottom: 30px; }
+    .about-body p + p { margin-top: 12px; }
+
+    .stack-head { font-size: .72rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+    .tag {
+      font-size: .85rem; padding: 5px 13px; border-radius: 5px;
+      border: 1px solid var(--line2); color: var(--text2); font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .tag:hover { border-color: var(--accent-bd); color: var(--text); }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 12px; margin-bottom: 28px;
+    }
+    .skill-card {
+      border: 1px solid var(--line); border-radius: var(--r);
+      padding: 18px 20px; background: var(--bg2);
+      transition: border-color .2s;
+    }
+    .skill-card:hover { border-color: var(--line2); }
+    .skill-card-head {
+      display: flex; align-items: center; gap: 9px; margin-bottom: 13px;
+    }
+    .skill-card-icon { font-size: 1rem; }
+    .skill-card-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--text3);
+    }
+    .skill-card .tags { margin-bottom: 0; }
+
+    /* Certs */
+    .certs-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--text3); margin-bottom: 12px;
+    }
+    .certs-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cert {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .86rem; font-weight: 500; color: var(--text2);
+      padding: 5px 13px; border-radius: 5px;
+      border: 1px solid var(--line2); background: var(--bg2);
+      transition: border-color .15s, color .15s;
+    }
+    .cert:hover { border-color: var(--accent-bd); color: var(--text); }
+    .cert::before { content: '✦'; font-size: .55rem; color: var(--teal); }
+
+    @media (max-width: 540px) {
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Experience ────────────────────────────────────────── */
+    .exp-item {
+      display: grid; grid-template-columns: 150px 1fr;
+      gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--line); }
+    .exp-period { font-size: .82rem; color: var(--text3); padding-top: 3px; line-height: 1.6; }
+    .exp-role { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .exp-co { font-size: .9rem; font-weight: 500; color: var(--teal); margin-bottom: 12px; }
+    .exp-ul { list-style: none; }
+    .exp-ul li {
+      font-size: .95rem; color: var(--text2); line-height: 1.75;
+      padding-left: 14px; position: relative; margin-bottom: 4px;
+    }
+    .exp-ul li::before { content: '–'; position: absolute; left: 0; color: var(--text3); }
+
+    /* ── Projects ──────────────────────────────────────────── */
+    .proj-list { display: flex; flex-direction: column; gap: 14px; }
+    .proj-card {
+      border: 1px solid var(--line); border-radius: var(--r);
+      padding: 22px 24px; background: var(--bg2);
+      transition: border-color .2s, background .2s;
+      border-left: 3px solid transparent;
+    }
+    .proj-card:hover { border-color: var(--line2); border-left-color: var(--accent); background: var(--bg3); }
+    .proj-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+    .proj-name { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+    .proj-ext { display: flex; gap: 14px; }
+    .proj-ext a { font-size: .75rem; color: var(--text3); font-weight: 500; }
+    .proj-ext a:hover { color: var(--teal); }
+    .proj-desc { font-size: .95rem; color: var(--text2); line-height: 1.8; margin-bottom: 14px; }
+    .proj-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ptag {
+      font-size: .7rem; padding: 2px 9px; border-radius: 4px;
+      background: var(--bg3); border: 1px solid var(--line2); color: var(--text3);
+    }
+    .award {
+      font-size: .73rem; font-weight: 600; color: var(--accent);
+      background: var(--accent-lt); border: 1px solid var(--accent-bd);
+      padding: 2px 10px; border-radius: 4px; white-space: nowrap;
+    }
+
+    /* ── Research ──────────────────────────────────────────── */
+    .research-list { display: flex; flex-direction: column; gap: 12px; }
+    .research-card {
+      padding: 18px 22px; border: 1px solid var(--line); border-radius: var(--r);
+      background: var(--bg2); transition: border-color .2s;
+    }
+    .research-card:hover { border-color: var(--line2); }
+    .r-venue { font-size: .7rem; font-weight: 700; color: var(--text3);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .r-title { font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 8px; }
+    .r-bullets { list-style: none; }
+    .r-bullets li {
+      font-size: .92rem; color: var(--text2); line-height: 1.7;
+      padding-left: 14px; position: relative; margin-bottom: 3px;
+    }
+    .r-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--text3); }
+
+    /* ── Education ─────────────────────────────────────────── */
+    .edu-item {
+      display: grid; grid-template-columns: 150px 1fr;
+      gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line);
+    }
+    .edu-item:first-child { border-top: 1px solid var(--line); }
+    .edu-period { font-size: .75rem; color: var(--text3); padding-top: 3px; }
+    .edu-deg { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .edu-school { font-size: .82rem; color: var(--teal); font-weight: 500; margin-bottom: 5px; }
+    .edu-note { font-size: .82rem; color: var(--text2); }
+
+    /* ── Contact ───────────────────────────────────────────── */
+    .contact-body { color: var(--text2); font-size: 1rem; line-height: 1.8; margin-bottom: 28px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; max-width: 540px; }
+    .c-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 16px; border: 1px solid var(--line); border-radius: var(--r);
+      background: var(--bg2); color: var(--text2); font-size: .92rem; font-weight: 500;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .c-link:hover { border-color: var(--accent-bd); color: var(--text); background: var(--bg3); }
+    .c-link-label { flex: 1; }
+    .c-link-url { font-size: .8rem; color: var(--text3); }
+    .c-icon { font-size: .95rem; flex-shrink: 0; }
+
+    /* ── Quote ─────────────────────────────────────────────── */
+    .quote-section {
+      padding: 72px 0; border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .quote-inner { max-width: 680px; text-align: center; }
+    .quote-mark { font-size: 4rem; line-height: .5; color: var(--accent); opacity: .35;
+      font-family: 'Playfair Display', serif; margin-bottom: 20px; display: block; }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      font-style: italic; color: var(--text2); line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .quote-author { font-size: .75rem; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text3); }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--line); padding: 28px 0;
+      text-align: center; font-size: .75rem; color: var(--text3);
+    }
+
+    /* ── Fade in ───────────────────────────────────────────── */
+    .fade { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .fade.in { opacity: 1; transform: none; }
+
+    /* ── Responsive ────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .w { padding: 0 18px; }
+      section { padding: 60px 0; }
+
+      /* Nav */
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      /* Hero */
+      #hero { align-items: flex-start; }
+      .hero-grid {
+        grid-template-columns: 1fr; gap: 36px; padding: 36px 0 32px;
+      }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo-frame { width: 160px; height: 160px; }
+      h1.hero-name { font-size: 2.1rem; }
+      .hero-btns .btn { flex: 1; justify-content: center; }
+      .hero-stats { gap: 18px; }
+      .hstat-n { font-size: 1.3rem; }
+
+      /* Exp / Edu */
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 6px; }
+
+      /* Projects */
+      .proj-head { flex-direction: column; }
+      .proj-foot { flex-direction: column; align-items: flex-start; }
+
+      /* Contact */
+      .contact-grid { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Hemangi Patil</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#experience" onclick="closeMob()">Experience</a>
+  <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#research" onclick="closeMob()">Research</a>
+  <a href="#education" onclick="closeMob()">Education</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="w">
+    <div class="hero-grid">
+
+      <!-- Text -->
+      <div class="hero-left">
+        <p class="hero-tag">Tampa, FL · Open to opportunities</p>
+        <h1 class="hero-name">Hemangi<br>Patil</h1>
+        <p class="hero-role">
+          Cloud &amp; AI Infrastructure · <strong>M.S. CS @ USF</strong>
+        </p>
+        <p class="hero-bio">
+          3+ years building cloud infrastructure and GPU environments at Larsen &amp; Toubro.
+          Now at USF doing research on distributed data retrieval at the MAX Systems Lab.
+          I like working on systems that have to actually hold up.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-fill">Get in touch</a>
+          <a href="#projects" class="btn btn-line">Projects</a>
+          <a href="https://github.com/Patil-Hemangi" target="_blank" class="btn btn-line">GitHub ↗</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat">
+            <span class="hstat-n">3+</span>
+            <span class="hstat-l">Yrs in industry</span>
+          </div>
+          <div class="hstat">
+            <span class="hstat-n">3×</span>
+            <span class="hstat-l">Hackathons placed</span>
+          </div>
+          <div class="hstat">
+            <span class="hstat-n">2</span>
+            <span class="hstat-l">Publications</span>
+          </div>
+          <div class="hstat">
+            <span class="hstat-n">M.S.</span>
+            <span class="hstat-l">In progress</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="https://github.com/user-attachments/assets/387a75b5-d98c-498a-96cc-94be53c29bd2" alt="Hemangi Patil"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="hero-photo-placeholder" style="display:none;">HP</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── About ────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="w fade">
+    <p class="s-label">About</p>
+    <h2 class="s-title">Background</h2>
+    <div class="about-body">
+      <p>
+        I'm a CS grad student at USF. Before coming back to school I spent three years at
+        Larsen &amp; Toubro in Mumbai, working on cloud infrastructure, IaaS platforms,
+        and GPU lab environments for production use.
+      </p>
+      <p>
+        My research is focused on systems for health, specifically data retrieval and
+        reliable infrastructure for clinical applications. Outside of that I build
+        things at hackathons and somehow keep placing.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <span class="skill-card-icon">💻</span>
+          <span class="skill-card-label">Programming</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Dart / Flutter</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <span class="skill-card-icon">🧠</span>
+          <span class="skill-card-label">Machine Learning</span>
+        </div>
+        <div class="tags">
+          <span class="tag">scikit-learn</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">RAG Pipelines</span>
+          <span class="tag">Multi-Agent AI</span>
+          <span class="tag">Data Preprocessing</span>
+          <span class="tag">Model Evaluation</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <span class="skill-card-icon">☁️</span>
+          <span class="skill-card-label">Systems &amp; Cloud</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Linux</span>
+          <span class="tag">KVM</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Azure</span>
+          <span class="tag">OpenShift</span>
+          <span class="tag">IaaS Design</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <span class="skill-card-icon">⚡</span>
+          <span class="skill-card-label">Infrastructure &amp; HPC</span>
+        </div>
+        <div class="tags">
+          <span class="tag">NVIDIA A100 / H100</span>
+          <span class="tag">CUDA Workloads</span>
+          <span class="tag">GPU Lab Design</span>
+          <span class="tag">Network Topology</span>
+          <span class="tag">Capacity Planning</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="certs-label">Certifications</p>
+    <div class="certs-row">
+      <span class="cert">Red Hat OpenShift Admin (DO180)</span>
+      <span class="cert">Red Hat OpenShift Developer (DO188)</span>
+      <span class="cert">Microsoft Azure Fundamentals</span>
+      <span class="cert">Nutanix Multicloud Infrastructure</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Experience ───────────────────────────────────────────── -->
+<section id="experience">
+  <div class="w fade">
+    <p class="s-label">Experience</p>
+    <h2 class="s-title">Work that shaped how I build.</h2>
+
+    <div class="exp-item">
+      <span class="exp-period">Feb 2026 — Present</span>
+      <div>
+        <p class="exp-role">Graduate Research Assistant</p>
+        <p class="exp-co">MAX Systems Lab · University of South Florida</p>
+        <ul class="exp-ul">
+          <li>Advisor: Prof. Santosh Pandey.</li>
+          <li>Working on optimizing large-scale data retrieval systems, focused on reducing query latency and improving throughput.</li>
+          <li>Looking at indexing strategies, storage layout, and data access patterns to make retrieval faster under different workload types.</li>
+          <li>Running benchmarks and evaluating retrieval performance across distributed computing environments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <span class="exp-period">Oct 2023 — Dec 2025</span>
+      <div>
+        <p class="exp-role">Solution Architect — Cloud &amp; Systems</p>
+        <p class="exp-co">Larsen &amp; Toubro Ltd · Mumbai, India</p>
+        <ul class="exp-ul">
+          <li>Promoted to Solution Architect within 1 year on manager recommendation, ahead of the standard timeline.</li>
+          <li>Co-designed an IaaS platform that scaled from ~2,500 to ~4,500 VMs, covering network topology, management nodes, and capacity planning for compute and HPC workloads.</li>
+          <li>Set up GPU lab environments using NVIDIA A100/H100 systems for 50+ concurrent students at academic institutions across India.</li>
+          <li>Led hardware architecture and vendor evaluations for compute and storage, balancing cost, reliability, and scale.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <span class="exp-period">Oct 2022 — Oct 2023</span>
+      <div>
+        <p class="exp-role">Graduate Engineer Trainee</p>
+        <p class="exp-co">Larsen &amp; Toubro Ltd · Mumbai, India</p>
+        <ul class="exp-ul">
+          <li>Built backend systems for a real-time financial platform pulling data from 130+ institutions, cut API response time by ~30% through caching and query optimization.</li>
+          <li>Worked on reliability improvements and debugging across distributed backend services.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <span class="exp-period">Jan 2022 — Jul 2022</span>
+      <div>
+        <p class="exp-role">Data Science &amp; ML Intern</p>
+        <p class="exp-co">Mass Technologies Ltd · Pune, India</p>
+        <ul class="exp-ul">
+          <li>Built end-to-end ML pipelines for early detection of chronic kidney disease using clinical datasets.</li>
+          <li>Applied KNN imputation, feature engineering, and model evaluation with a strong focus on minimizing false negatives, since missing a diagnosis matters more than a false positive here.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Projects ──────────────────────────────────────────────── -->
+<section id="projects">
+  <div class="w fade">
+    <p class="s-label">Projects</p>
+    <h2 class="s-title">Things I've built.</h2>
+    <div class="proj-list">
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <span class="proj-name">Emergency Command Center (ECC)</span>
+          <div class="proj-ext">
+            <a href="https://devpost.com/hemangirp15?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank">Devpost ↗</a>
+          </div>
+        </div>
+        <p class="proj-desc">Built for 911 surge situations where there aren't enough operators. AI voice agents (ElevenLabs + Featherless) take incoming calls, collect details, update incident records, and flag anything critical to a human. A live Mapbox dashboard groups duplicate calls, maps where incidents are clustering, and helps operators focus on what's urgent. IBM Watson handles multilingual callers, Twilio runs the voice layer. We did system architecture first, including API contracts and database schemas, before writing any code.</p>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="ptag">Next.js</span><span class="ptag">TypeScript</span><span class="ptag">IBM Watson</span><span class="ptag">Mapbox</span><span class="ptag">Twilio</span><span class="ptag">Supabase</span>
+          </div>
+          <span class="award">🥇 1st — IBM × UNSA 2026</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <span class="proj-name">SignBridge</span>
+          <div class="proj-ext">
+            <a href="https://devpost.com/hemangirp15?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank">Devpost ↗</a>
+            <a href="https://github.com/rshah2001/SignBridge26" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="proj-desc">Real-time, two-way sign language translation for Deaf and hearing users. Speech goes in, gets converted to proper ASL grammar using NLTK (ASL word order is different from English), then plays from a 150+ sign clip library with fingerspelling as fallback. On the other side, MediaPipe Hands tracks 21 joint landmarks per hand at 30+ fps, Gemini Vision reads the gesture and returns English text in 300-600ms, spoken out via ElevenLabs. There's a side-by-side live conversation mode so both people can communicate in real time without needing an interpreter.</p>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="ptag">Django</span><span class="ptag">MediaPipe</span><span class="ptag">Gemini Vision</span><span class="ptag">NLTK</span><span class="ptag">ElevenLabs</span>
+          </div>
+          <span class="award">🏆 3rd — HackAbull VII 2026</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <span class="proj-name">BayShield</span>
+          <div class="proj-ext">
+            <a href="https://devpost.com/hemangirp15?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank">Devpost ↗</a>
+          </div>
+        </div>
+        <p class="proj-desc">Disaster response system for Tampa Bay using four AI agents running in parallel: Storm Watcher, Vulnerability Mapper, Resource Allocator, and Alert/Response. They coordinate with each other and self-correct. Built a live dashboard with risk zone maps, shelter capacity tracking, and evacuation routing. We ran it on real Hurricane Helene data from Kaggle, with a RAG pipeline to keep responses grounded. The idea was to help emergency managers make faster decisions when things are moving faster than people can keep up.</p>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="ptag">Multi-Agent AI</span><span class="ptag">RAG</span><span class="ptag">Python</span>
+          </div>
+          <span class="award">🏆 3rd @ HackUSF · 2nd @ Tampa Bay Resilience 2026</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <span class="proj-name">NeuroTask — Digitization of Neurological Assessments</span>
+        </div>
+        <p class="proj-desc">A Flutter app to digitize neurological assessments that clinicians currently run on paper. The core requirement was millisecond-level timestamping to accurately capture reaction time, completion latency, and speech onset latency. The UI is built to match the paper tasks exactly so the assessments stay clinically valid. Session data logs to Firebase Firestore and exports as CSV for analysis. Still in active development at USF.</p>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="ptag">Flutter</span><span class="ptag">Firebase</span><span class="ptag">Dart</span><span class="ptag">Clinical Data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <span class="proj-name">IaaS Private Cloud Platform</span>
+        </div>
+        <p class="proj-desc">Co-designed a private cloud IaaS platform at Larsen &amp; Toubro that went from ~2,500 to ~4,500 VMs in production. My work covered network topology, management node architecture, and capacity planning for both general compute and GPU/HPC workloads.</p>
+        <div class="proj-foot">
+          <div class="proj-tags">
+            <span class="ptag">Kubernetes</span><span class="ptag">OpenShift</span><span class="ptag">KVM</span><span class="ptag">Linux</span><span class="ptag">HPC</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Research ──────────────────────────────────────────────── -->
+<section id="research">
+  <div class="w fade">
+    <p class="s-label">Research &amp; Publications</p>
+    <h2 class="s-title">Published work.</h2>
+    <div class="research-list">
+
+      <div class="research-card">
+        <p class="r-venue">IRJET · 2025</p>
+        <p class="r-title">Predictive Modeling for Chronic Kidney Disease</p>
+        <ul class="r-bullets">
+          <li>Developed ML models using Random Forest and Logistic Regression for early CKD detection.</li>
+          <li>Addressed missing clinical data using KNN-based imputation and feature engineering.</li>
+          <li>Focused on evaluation of clinically significant errors such as false negatives.</li>
+        </ul>
+      </div>
+
+      <div class="research-card">
+        <p class="r-venue">IRJET · 2025</p>
+        <p class="r-title">A Machine Learning Approach to Diabetes Prediction</p>
+        <ul class="r-bullets">
+          <li>Developed ML models using Random Forest and Logistic Regression.</li>
+          <li>Addressed missing clinical data using KNN-based imputation and feature engineering.</li>
+          <li>Focused on evaluation of clinically significant errors such as false negatives.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Education ─────────────────────────────────────────────── -->
+<section id="education">
+  <div class="w fade">
+    <p class="s-label">Education</p>
+    <h2 class="s-title">Academic background.</h2>
+
+    <div class="edu-item">
+      <span class="edu-period">Jan 2026 — Dec 2027</span>
+      <div>
+        <p class="edu-deg">Master of Science, Computer Science</p>
+        <p class="edu-school">University of South Florida · Tampa, FL</p>
+        <p class="edu-note">GPA: 4.0 / 4.0</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <span class="edu-period">Aug 2018 — Jul 2022</span>
+      <div>
+        <p class="edu-deg">Bachelor of Technology, Computer Engineering</p>
+        <p class="edu-school">Dr. Babasaheb Ambedkar Technological University · India</p>
+        <p class="edu-note">CGPA: 9.45 / 10</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Quote ─────────────────────────────────────────────────── -->
+<div class="quote-section">
+  <div class="quote-inner fade">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">If the plan doesn't work, change the plan, but never the goal.</p>
+    <p class="quote-author">— Kim Seokjin</p>
+  </div>
+</div>
+
+<!-- ── Contact ───────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="w fade">
+    <p class="s-label">Contact</p>
+    <h2 class="s-title">Let's connect.</h2>
+    <p class="contact-body">
+      Open to research collaborations, internships, and roles in cloud architecture, AI infrastructure, and systems engineering. Feel free to reach out.
+    </p>
+    <div class="contact-grid">
+      <a class="c-link" href="mailto:hemangirp15@gmail.com">
+        <span class="c-icon">✉️</span>
+        <span class="c-link-label">Email</span>
+      </a>
+      <a class="c-link" href="https://linkedin.com/in/patilhemangi" target="_blank">
+        <span class="c-icon">💼</span>
+        <span class="c-link-label">LinkedIn</span>
+      </a>
+      <a class="c-link" href="https://github.com/Patil-Hemangi" target="_blank">
+        <span class="c-icon">🐙</span>
+        <span class="c-link-label">GitHub</span>
+      </a>
+      <a class="c-link" href="https://devpost.com/hemangirp15?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank">
+        <span class="c-icon">🛠️</span>
+        <span class="c-link-label">Devpost</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────────── -->
+<footer>
+  <div class="w">© 2026 Hemangi Patil · Tampa, FL</div>
+</footer>
+
+<script>
+  // Scroll fade
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold: 0.07 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+  // Mobile menu
+  function toggleMob() { document.getElementById('mobMenu').classList.toggle('open'); }
+  function closeMob()  { document.getElementById('mobMenu').classList.remove('open'); }
+</script>
+</body>
+</html>
